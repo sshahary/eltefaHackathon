@@ -18,7 +18,7 @@ export default function App() {
       {/* Hide the default header and use our own styling */}
       <Stack.Navigator screenOptions={{ headerShown: false }}>
         <Stack.Screen name="Home" component={HomeScreen} />
-        <Stack.Screen name="Devices" component={DevicesScreen} />
+        <Stack.Screen name="Photovoltaik" component={DevicesScreen} />
         <Stack.Screen name="Statistics" component={StatisticsScreen} />
         <Stack.Screen name="EnergyData" component={EnergyDataScreen} />
         <Stack.Screen name="Settings" component={SettingsScreen} />

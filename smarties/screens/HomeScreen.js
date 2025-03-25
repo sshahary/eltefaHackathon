@@ -11,9 +11,9 @@ export default function HomeScreen({ navigation }) {
       {/* Navigation Buttons */}
       <TouchableOpacity
         style={styles.menuButton}
-        onPress={() => navigation.navigate("Devices")}
+        onPress={() => navigation.navigate("Photovoltaik")}
       >
-        <Text style={styles.menuButtonText}>Devices</Text>
+        <Text style={styles.menuButtonText}>Photovoltaik</Text>
       </TouchableOpacity>
 
       <TouchableOpacity
