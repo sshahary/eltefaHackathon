@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Three.js Demo</title>
+    <!-- Load three.js from CDN -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r136/three.min.js"></script>
+    <!-- Load rhino3dm.js (kept for compatibility if needed later) -->
+    <script src="https://unpkg.com/rhino3dm@7.15.0/rhino3dm.js"></script>
+    <style>
+      html, body {
+        margin: 0;
+        padding: 0;
+        overflow: hidden;
+        width: 100%;
+        height: 100%;
+        background: #000;
+      }
+      #canvas-container {
+        width: 100%;
+        height: 100%;
+      }
+      #info-overlay {
+        display: none;
+        position: absolute;
+        top: 10px;
+        left: 10px;
+        background: rgba(0, 0, 0, 0.7);
+        color: #AEFF4C;
+        padding: 10px;
+        border-radius: 5px;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="canvas-container"></div>
+    <div id="info-overlay">
+      <p>Aushaltegeraete: Demo Details</p>
+      <p>Light Raumsbeleutung: Demo Details</p>
+    </div>
+    <script>
+      // Global variables
+      let scene, camera, renderer, cube, directionalLight;
+      let animationOn = false;
+      
+      // Initialize the scene, camera, renderer, cube, and light
+      function initThree() {
+        // Create scene
+        scene = new THREE.Scene();
+        
+        // Set up camera
+        camera = new THREE.PerspectiveCamera(
+          75,
+          window.innerWidth / window.innerHeight,
+          0.1,
+          1000
+        );
+        camera.position.z = 5;
+        
+        // Create renderer and add to container
+        renderer = new THREE.WebGLRenderer({ antialias: true });
+        renderer.setSize(window.innerWidth, window.innerHeight);
+        document.getElementById("canvas-container").appendChild(renderer.domElement);
+        
+        // Add a simple cube
+        const geometry = new THREE.BoxGeometry();
+        const material = new THREE.MeshStandardMaterial({ color: 0x00ff00 });
+        cube = new THREE.Mesh(geometry, material);
+        scene.add(cube);
+        
+        // Create and add a directional light
+        directionalLight = new THREE.DirectionalLight(0xffffff, 0.5);
+        directionalLight.position.set(5, 5, 5);
+        scene.add(directionalLight);
+      }
+      
+      // Render loop (rotate the cube)
+      function animate() {
+        requestAnimationFrame(animate);
+        cube.rotation.x += 0.01;
+        cube.rotation.y += 0.01;
+        renderer.render(scene, camera);
+      }
+      
+      // Toggle animation for light intensity and overlay display
+      function toggleAnimation() {
+        animationOn = !animationOn;
+        if (animationOn) {
+          animateLightsOn();
+          showDetails();
+        } else {
+          animateLightsOff();
+          hideDetails();
+        }
+      }
+      
+      // Increase light intensity over 1 second
+      function animateLightsOn() {
+        const targetIntensity = 1.0;
+        const duration = 1000;
+        const startIntensity = directionalLight.intensity;
+        const startTime = performance.now();
+        
+        function update() {
+          const elapsed = performance.now() - startTime;
+          let progress = elapsed / duration;
+          if (progress > 1) progress = 1;
+          directionalLight.intensity = startIntensity + (targetIntensity - startIntensity) * progress;
+          if (progress < 1) requestAnimationFrame(update);
+        }
+        update();
+      }
+      
+      // Decrease light intensity over 1 second
+      function animateLightsOff() {
+        const targetIntensity = 0.5;
+        const duration = 1000;
+        const startIntensity = directionalLight.intensity;
+        const startTime = performance.now();
+        
+        function update() {
+          const elapsed = performance.now() - startTime;
+          let progress = elapsed / duration;
+          if (progress > 1) progress = 1;
+          directionalLight.intensity = startIntensity + (targetIntensity - startIntensity) * progress;
+          if (progress < 1) requestAnimationFrame(update);
+        }
+        update();
+      }
+      
+      // Display the overlay
+      function showDetails() {
+        document.getElementById("info-overlay").style.display = "block";
+      }
+      
+      // Hide the overlay
+      function hideDetails() {
+        document.getElementById("info-overlay").style.display = "none";
+      }
+      
+      // Listen for messages (e.g., from React Native)
+      window.addEventListener("message", (event) => {
+        if (event.data === "toggleAnimation") {
+          toggleAnimation();
+        }
+      });
+      
+      // Allow toggling by tapping the canvas
+      document.getElementById("canvas-container").addEventListener("click", toggleAnimation);
+      
+      // Initialize and start rendering
+      initThree();
+      animate();
+    </script>
+  </body>
+</html>

@@ -240,7 +240,7 @@ const mockData = {
     { name: "Klimaanlagen", usage: 178 },
     { name: "Computer System", usage: 135 },
     { name: "Heizungen", usage: 207 },
-    { name: "Beleutungen", usage: 121 },
+    { name: "Beleuchtungen", usage: 121 },
   ],
 };
 

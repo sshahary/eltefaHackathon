@@ -1,52 +1,50 @@
-// screens/EnergyDataScreen.js
 import React from "react";
-import { View, Text, StyleSheet, TouchableOpacity } from "react-native";
+import { View, Text, StyleSheet, Image } from "react-native";
+import { SafeAreaView } from "react-native-safe-area-context";
 
 export default function EnergyDataScreen({ navigation }) {
   return (
-    <View style={styles.container}>
-      <Text style={styles.title}>Energy Data</Text>
+    <SafeAreaView style={styles.container}>
+      <Text style={styles.title}>3D Rendering</Text>
       <Text style={styles.subtitle}>View real-time energy info</Text>
 
-      <TouchableOpacity
-        style={styles.backButton}
-        onPress={() => navigation.goBack()}
-      >
-        <Text style={styles.backButtonText}>Go Back</Text>
-      </TouchableOpacity>
-    </View>
+      {/* Display the 3D model GIF */}
+      <Image
+        source={require("../assets/icon.png")}
+        style={styles.gif}
+        resizeMode="contain"
+      />
+
+      <Text style={styles.infoText}>Dies ist eine Demo eines 3D-Modells</Text>
+    </SafeAreaView>
   );
 }
-
-const ACCENT_COLOR = "#AEFF4C";
-const DARK_BG = "#1E1E1E";
-const LIGHT_TEXT = "#FFFFFF";
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: DARK_BG,
+    backgroundColor: "#000",
     alignItems: "center",
     justifyContent: "center",
   },
   title: {
-    color: LIGHT_TEXT,
+    color: "#FFFFFF",
     fontSize: 24,
     fontWeight: "700",
     marginBottom: 4,
   },
   subtitle: {
-    color: ACCENT_COLOR,
+    color: "#AEFF4C",
     fontSize: 16,
     marginBottom: 30,
   },
-  backButton: {
-    backgroundColor: "#2B2B2B",
-    padding: 12,
-    borderRadius: 8,
+  gif: {
+    width: 300,
+    height: 300,
   },
-  backButtonText: {
-    color: LIGHT_TEXT,
+  infoText: {
+    color: "#FFFFFF",
     fontSize: 16,
+    marginTop: 20,
   },
 });
