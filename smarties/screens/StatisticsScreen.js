@@ -16,6 +16,7 @@ export default function SettingsScreen({ navigation }) {
 
   // Direktes Anzeigen des Schwellenwerts in kW (keine Umrechnung nötig)
   const getThresholdInKW = (value) => value; // Direkt den Wert anzeigen, keine Umrechnung mehr nötig
+
   // Slider-Wertänderung
   const handleSliderChange = (value) => {
     setThreshold(value);
@@ -135,3 +136,4 @@ const styles = StyleSheet.create({
     fontSize: 16,
   },
 });
+
