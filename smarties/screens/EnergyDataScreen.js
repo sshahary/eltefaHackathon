@@ -1,3 +1,4 @@
+// screens/EnergyDataScreen.js
 import React from "react";
 import { View, Text, StyleSheet, Image } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
@@ -20,31 +21,38 @@ export default function EnergyDataScreen({ navigation }) {
   );
 }
 
+const ACCENT_COLOR = "#AEFF4C";
+const DARK_BG = "#1E1E1E";
+const LIGHT_TEXT = "#FFFFFF";
+
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: "#000",
+    backgroundColor: DARK_BG,
     alignItems: "center",
     justifyContent: "center",
   },
   title: {
-    color: "#FFFFFF",
+    color: LIGHT_TEXT,
     fontSize: 24,
     fontWeight: "700",
     marginBottom: 4,
   },
   subtitle: {
-    color: "#AEFF4C",
+    color: ACCENT_COLOR,
     fontSize: 16,
     marginBottom: 30,
   },
   gif: {
     width: 400,
     height: 300,
+  backButton: {
+    backgroundColor: "#2B2B2B",
+    padding: 12,
+    borderRadius: 8,
   },
-  infoText: {
-    color: "#FFFFFF",
+  backButtonText: {
+    color: LIGHT_TEXT,
     fontSize: 16,
-    marginTop: 20,
   },
-});
+}});
