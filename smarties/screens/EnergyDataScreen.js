@@ -7,7 +7,9 @@ export default function EnergyDataScreen({ navigation }) {
   return (
     <SafeAreaView style={styles.container}>
       <Text style={styles.title}>3D Rendering</Text>
-      <Text style={styles.subtitle}>View real-time energy info</Text>
+      <Text style={styles.subtitle}>
+        Energieinformationen in Echtzeit anzeigen
+      </Text>
 
       {/* Display the 3D model GIF */}
       <Image
@@ -51,6 +53,9 @@ const styles = StyleSheet.create({
     padding: 12,
     borderRadius: 8,
   },
+  infoText: {
+    color: "#2B2B2B",
+    fontSize: 14,},
   backButtonText: {
     color: LIGHT_TEXT,
     fontSize: 16,
