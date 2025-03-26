@@ -5,14 +5,14 @@ import { View, Text, StyleSheet, TouchableOpacity } from "react-native";
 export default function EnergyDataScreen({ navigation }) {
   return (
     <View style={styles.container}>
-      <Text style={styles.title}>Energy Data</Text>
-      <Text style={styles.subtitle}>View real-time energy info</Text>
+      <Text style={styles.title}>3D-Rendering</Text>
+      <Text style={styles.subtitle}>Baustelle, bitte nicht stören</Text>
 
       <TouchableOpacity
         style={styles.backButton}
         onPress={() => navigation.goBack()}
       >
-        <Text style={styles.backButtonText}>Go Back</Text>
+        <Text style={styles.backButtonText}>Zurück</Text>
       </TouchableOpacity>
     </View>
   );

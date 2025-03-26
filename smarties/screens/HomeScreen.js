@@ -5,8 +5,8 @@ import { View, Text, StyleSheet, TouchableOpacity } from "react-native";
 export default function HomeScreen({ navigation }) {
   return (
     <View style={styles.container}>
-      <Text style={styles.title}>Energy Management</Text>
-      <Text style={styles.subtitle}>Welcome, Smarties</Text>
+      <Text style={styles.title}>Smarties Control</Text>
+      <Text style={styles.subtitle}>Willkommen, Smartie</Text>
 
       {/* Navigation Buttons */}
       <TouchableOpacity
@@ -18,23 +18,23 @@ export default function HomeScreen({ navigation }) {
 
       <TouchableOpacity
         style={styles.menuButton}
-        onPress={() => navigation.navigate("Statistics")}
+        onPress={() => navigation.navigate("Geräte")}
       >
-        <Text style={styles.menuButtonText}>Statistics</Text>
+        <Text style={styles.menuButtonText}>Geräte</Text>
       </TouchableOpacity>
 
       <TouchableOpacity
         style={styles.menuButton}
-        onPress={() => navigation.navigate("EnergyData")}
+        onPress={() => navigation.navigate("3D-Rendering")}
       >
-        <Text style={styles.menuButtonText}>Energy Data</Text>
+        <Text style={styles.menuButtonText}>3D-Rendering</Text>
       </TouchableOpacity>
 
       <TouchableOpacity
         style={styles.menuButton}
-        onPress={() => navigation.navigate("Settings")}
+        onPress={() => navigation.navigate("Einstellungen")}
       >
-        <Text style={styles.menuButtonText}>Settings</Text>
+        <Text style={styles.menuButtonText}>Einstellungen</Text>
       </TouchableOpacity>
     </View>
   );

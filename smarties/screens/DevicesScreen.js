@@ -98,8 +98,7 @@ export default function StatisticsScreen() {
   return (
     <ScrollView style={styles.container}>
       <View style={styles.headerContainer}>
-        <Text style={styles.welcomeText}>Willkommen zurück</Text>
-        <Text style={styles.userName}>Richard</Text>
+        <Text style={styles.welcomeText}>Willkommen zurück Smartie</Text>
       </View>
 
       {/* Scenario Tabs in 2x2 Grid */}

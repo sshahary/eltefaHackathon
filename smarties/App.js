@@ -19,9 +19,9 @@ export default function App() {
       <Stack.Navigator screenOptions={{ headerShown: false }}>
         <Stack.Screen name="Home" component={HomeScreen} />
         <Stack.Screen name="Photovoltaik" component={DevicesScreen} />
-        <Stack.Screen name="Statistics" component={StatisticsScreen} />
-        <Stack.Screen name="EnergyData" component={EnergyDataScreen} />
-        <Stack.Screen name="Settings" component={SettingsScreen} />
+        <Stack.Screen name="Geräte" component={StatisticsScreen} />
+        <Stack.Screen name="3D-Rendering" component={EnergyDataScreen} />
+        <Stack.Screen name="Einstellungen" component={SettingsScreen} />
       </Stack.Navigator>
     </NavigationContainer>
   );
