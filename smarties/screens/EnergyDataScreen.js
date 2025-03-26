@@ -10,7 +10,7 @@ export default function EnergyDataScreen({ navigation }) {
 
       {/* Display the 3D model GIF */}
       <Image
-        source={require("../assets/icon.png")}
+        source={require("../assets/3d.gif")}
         style={styles.gif}
         resizeMode="contain"
       />
@@ -39,7 +39,7 @@ const styles = StyleSheet.create({
     marginBottom: 30,
   },
   gif: {
-    width: 300,
+    width: 400,
     height: 300,
   },
   infoText: {
